@@ -1,5 +1,6 @@
 ﻿using ConsoleApplication5.Modules.HHRR;
 using ConsoleApplication5.Modules.HHRR.Hiring;
+using ConsoleApplication5.Modules.Payroll;
 using ConsoleApplication5.Services;
 using Newtonsoft.Json;
 using System;
@@ -33,9 +34,13 @@ namespace ConsoleApplication5
             var enabledModules = GetEnabledModules();
             var options = new List<Option>
             {
-                new Option("a", "A - Contratacion", Hiring.Form, "Hiring"),
+                new Option("a", "A - Contratación", Hiring.Form, "Hiring"),
                 new Option("b", "B - Vacaciones", Vacations.Form, "Vacations"),
-                //new Option("c", "C - Accion", Vacations., "Action")
+                new Option("c", "C - Permisos", Permission.Form, "Permission"),
+                new Option("d", "D - Desvinculaciones", Disengagement.Form, "Disengagement"),
+                new Option("e", "E - Acción de Personal", EmployeesActions.Form, "Action"),
+                new Option("f", "F - Proceso de Pagos", Pay.Process, "Pay"),
+                new Option("g", "G - Exportar Pagos a Excel", Pay.Excel, "PaysToExcel")
             }.Where(o => enabledModules.Contains(o.ID))
              .ToList();
             Menu.Render(options);

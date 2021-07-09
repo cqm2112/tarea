@@ -20,26 +20,24 @@ namespace ConsoleApplication5
                     Console.WriteLine(d.Description);
                 });
                 Console.WriteLine("X - Salir");
-                Console.Write("Opcion: ");
+                Console.Write("Opción: ");
                 string selectedOpt = (Console.ReadLine() + "").ToLower();
                 exit = selectedOpt == "x";
                 if (exit)
                 {
-                    Console.WriteLine("Hablamo");
                     Thread.Sleep(1500);
                     break;
                 }
                 var option = options.FirstOrDefault(u => u.Key == selectedOpt);
                 if (option == null)
                 {
-                    Console.WriteLine("La opcion no existe, bobo");
+                    Console.WriteLine("La opción no existe, vuelva a intentarlo.");
                     Console.ReadLine();
                     Console.Clear();
                     continue;
                 }
                 Console.Clear();
                 option.Function();
-                Console.ReadKey();
             }
         }
     }

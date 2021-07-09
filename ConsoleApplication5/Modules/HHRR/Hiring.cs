@@ -19,7 +19,8 @@ namespace ConsoleApplication5.Modules.HHRR.Hiring
             employee.Role = Forms.Capture("Introduzca el cargo: ");
             employee.Salary = Forms.CaptureWithParse<int>("Introduzca el salario: ");
             EmployeeService.Insert(employee);
-            Console.WriteLine("El candidado se ha registrado correctamente!!!!!!!!!!!!!!!!!!!!\nPresione una tecla para continuar... rata");
+            Console.WriteLine("El candidato se ha registrado correctamente.\nPresione una tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }

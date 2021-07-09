@@ -2,11 +2,12 @@
   "HHRR": {
     "Hiring": true,
     "Permission": false,
-    "Vacations": true,
-    "Disengagement": false
+    "Vacations": false,
+    "Disengagement": true
   },
   "Payroll": {
-    "Action": true,
-    "Pay": true
+    "Action": false,
+    "Pay": true,
+    "PaysToExcel": true
   }
 }

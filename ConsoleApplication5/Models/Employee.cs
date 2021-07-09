@@ -17,5 +17,7 @@ namespace ConsoleApplication5.Models
         public short? IsInVacation { get; set; }
         public string DateVacationStart { get; set; }
         public string DateVacationEnd { get; set; }
+        public string Permission { get; set; }
+        public string PerReason { get; set; }
     }
 }

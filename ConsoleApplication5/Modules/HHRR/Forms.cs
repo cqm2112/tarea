@@ -28,7 +28,7 @@ namespace ConsoleApplication5.Modules.HHRR
                 }
                 catch(Exception)
                 {
-                    Console.WriteLine("El Digito insertado es incorrecto");
+                    Console.WriteLine("Los datos insertados son incorrectos");
                 }
             }
             return (T) parsedValue;

@@ -1,16 +1,30 @@
 ﻿using ConsoleApplication5.Models;
+using ConsoleApplication5.Modules.HHRR;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication5.Services
 {
     static class EmployeeService
     {
+
+        public static Employee CaptureEmployeeCardId()
+        {
+            int cardId = Forms.CaptureWithParse<int>("Introduzca la cedula del empleado: ");
+            return GetByCardId(cardId);
+        }
+
+        public static void ShowEmployeeData(Employee employee)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Nombre empleado:" + employee.Name);
+            Console.WriteLine("Departamento empleado:" + employee.Department);
+            Console.WriteLine("Cargo empleado:" + employee.Role);
+            Console.WriteLine("Salario empleado:" + employee.Salary);
+            Console.WriteLine();
+        }
 
         public static Employee GetByCardId(int cardId){
             var sql = $"SELECT * FROM Employees WHERE CardId = {cardId}";
@@ -28,7 +42,7 @@ namespace ConsoleApplication5.Services
             DateTime date;
             bool ok = DateTime.TryParse(dateStr, out date);
             if (ok) result = date;
-            return ok ? result.Value.ToShortDateString() : null;
+            return ok ? result.Value.ToString("yyyy-MM-dd") : null;
         }
 
         private static short? ParseShortFromString(string dateStr)
@@ -49,7 +63,7 @@ namespace ConsoleApplication5.Services
             {
                 while (reader.Read())
                 {
-                    result.Add(new Employee
+                    var employee = new Employee
                     {
                         Id = Convert.ToInt32(reader["id"].ToString()),
                         Name = reader["Name"].ToString(),
@@ -60,13 +74,16 @@ namespace ConsoleApplication5.Services
                         IsInVacation = ParseShortFromString(reader["IsInVacation"].ToString()),
                         DateVacationStart = ParseDateFromString(reader["DateVacationStart"].ToString()),
                         DateVacationEnd = ParseDateFromString(reader["DateVacationEnd"].ToString()),
-                    });
+                        Permission = ParseDateFromString(reader["Permission"].ToString()),
+                        PerReason = reader["PerReason"].ToString()
+                    };
+                    result.Add(employee);
                 }
             }
             return result;
         }
 
-        public static bool Insert(Employee employee)
+        public static void Insert(Employee employee)
         {
             var props = employee.GetType().GetProperties().Where(u => u.Name != "Id");
             var args = String.Join(",", Enumerable.Repeat("?", props.Count()).ToArray());
@@ -80,15 +97,18 @@ namespace ConsoleApplication5.Services
                 }
                 command.ExecuteNonQuery();
             }
-            return true;
         }
 
-        public static bool Update(Employee employee)
+        public static void Update(Employee employee)
         {
             var props = employee.GetType().GetProperties().Where(u => u.Name != "Id");
             var quotableTypes = new string[] { "string", "datetime" };
-            Func<string, object, string> localSqlProp = (propFullName, val) =>
-                quotableTypes.Any(u => propFullName.ToLower().Contains(u)) ? $"'{val}'" : val.ToString();
+            string localSqlProp(string propFullName, object val) =>
+                val == null
+                ? "null"
+                : quotableTypes.Any(u => propFullName.ToLower().Contains(u))
+                ? $"'{val}'"
+                : val.ToString();
             var query = $@"UPDATE Employees
                     SET {String.Join(",", props.Select(u => $"{u.Name} = {localSqlProp(u.PropertyType.FullName, u.GetValue(employee, null))}").ToArray())}
                     WHERE Id = {employee.Id}";
@@ -97,7 +117,16 @@ namespace ConsoleApplication5.Services
             {
                 command.ExecuteNonQuery();
             }
-            return true;
+        }
+
+        public static void Delete(int id)
+        {
+            string query = $"DELETE FROM Employees where id = {id}";
+            using (var ctx = DbContext.GetInstance())
+            using (var command = new SQLiteCommand(query, ctx))
+            {
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
