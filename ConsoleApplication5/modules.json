@@ -1,0 +1,12 @@
+﻿{
+  "HHRR": {
+    "Hiring": true,
+    "Permission": false,
+    "Vacations": true,
+    "Disengagement": false
+  },
+  "Payroll": {
+    "Action": true,
+    "Pay": true
+  }
+}

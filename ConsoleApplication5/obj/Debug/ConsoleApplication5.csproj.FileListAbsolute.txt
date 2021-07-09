@@ -1,0 +1,16 @@
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe.config
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.pdb
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.csprojResolveAssemblyReference.cache
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.exe
+c:\users\usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\System.Data.SQLite.dll
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\documents\visual studio 2015\Projects\ConsoleApplication5\ConsoleApplication5\bin\Debug\System.Data.SQLite.xml
